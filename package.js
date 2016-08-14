@@ -10,6 +10,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   api.use([
+    'check',
     'templating',
     'underscore',
     'tracker',
@@ -18,7 +19,6 @@ Package.onUse(function(api) {
     'mfactory:admin-lte@0.0.1',
     'aldeed:autoform@5.3.0',
     'aldeed:tabular@1.2.0',
-    'tmeasday:publish-counts@0.4.0'
   ]);
 
   api.use([
@@ -58,6 +58,10 @@ Package.onUse(function(api) {
     'client/autoform.js',
     'client/style.css'
   ], 'client');
+
+  api.addFiles([
+    'server/methods.js',
+  ], 'server');
 
   api.export('Admin');
 });

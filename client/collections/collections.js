@@ -23,7 +23,11 @@ Template.mfAdminCollectionsView.onCreated(function () {
 
 Template.mfAdminCollectionsView.helpers({
   hasDocuments: function () {
-    return Counts.get(this.countPubName) > 0;
+    var name = this.title;
+    Meteor.call('getPublishedCount',name, function(err,value){
+      Admin.collections.counts.set(name, value);
+    });
+    return Admin.collections.counts.get(name);
   }
 });
 
